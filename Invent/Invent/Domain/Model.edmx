@@ -1,0 +1,1225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище InventarizationModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Building">
+          <Key>
+            <PropertyRef Name="IDBuilding" />
+          </Key>
+          <Property Name="IDBuilding" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DefectiveList">
+          <Key>
+            <PropertyRef Name="IDList" />
+          </Key>
+          <Property Name="IDList" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DocDate" Type="date" Nullable="false" />
+          <Property Name="WorkerTableNum" Type="int" Nullable="false" />
+          <Property Name="WriteOffActIDWriteOffAct" Type="int" />
+        </EntityType>
+        <EntityType Name="Expert">
+          <Key>
+            <PropertyRef Name="IDExpert" />
+          </Key>
+          <Property Name="IDExpert" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FullName" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="SubdivisionIDSubdivision" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Expertise">
+          <Key>
+            <PropertyRef Name="IDExpertise" />
+          </Key>
+          <Property Name="IDExpertise" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ExpertiseDate" Type="date" Nullable="false" />
+          <Property Name="Commentary" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="DefectiveListIDList" Type="int" Nullable="false" />
+          <Property Name="ExpertIDExpert" Type="int" Nullable="false" />
+          <Property Name="InventoryIDInventory" Type="int" />
+        </EntityType>
+        <EntityType Name="Inventory">
+          <Key>
+            <PropertyRef Name="IDInventory" />
+          </Key>
+          <Property Name="IDInventory" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ManufactNum" Type="int" Nullable="false" />
+          <Property Name="FullName" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="InvNumber" Type="int" Nullable="false" />
+          <Property Name="ReceiveDate" Type="date" Nullable="false" />
+          <Property Name="Cost" Type="decimal" Precision="19" Scale="2" Nullable="false" />
+          <Property Name="ObjectTypeTypeID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="InvSchedule">
+          <Key>
+            <PropertyRef Name="IDSchedule" />
+          </Key>
+          <Property Name="IDSchedule" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DocName" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="DocDate" Type="date" Nullable="false" />
+          <Property Name="WorkerNum" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MoveStatement">
+          <Key>
+            <PropertyRef Name="IDStatement" />
+          </Key>
+          <Property Name="IDStatement" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StatementDate" Type="date" Nullable="false" />
+          <Property Name="WorkerTableNum" Type="int" Nullable="false" />
+          <Property Name="SenderSubdivisionID" Type="int" />
+          <Property Name="ReceiverSubdivisionID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ObjectType">
+          <Key>
+            <PropertyRef Name="TypeID" />
+          </Key>
+          <Property Name="TypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TypeName" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ScheduleContext">
+          <Key>
+            <PropertyRef Name="IDContext" />
+          </Key>
+          <Property Name="ScheduleID" Type="int" Nullable="false" />
+          <Property Name="InventoryIDInventory" Type="int" />
+          <Property Name="IDContext" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StatementContext">
+          <Key>
+            <PropertyRef Name="IDContext" />
+          </Key>
+          <Property Name="MoveStatementIDStatement" Type="int" Nullable="false" />
+          <Property Name="InventoryIDInventory" Type="int" />
+          <Property Name="IDContext" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Subdivision">
+          <Key>
+            <PropertyRef Name="IDSubdivision" />
+          </Key>
+          <Property Name="IDSubdivision" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="MainSubdivisionID" Type="int" />
+          <Property Name="DissolutionDate" Type="date" />
+          <Property Name="BuildingIDBuilding" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Waybill">
+          <Key>
+            <PropertyRef Name="IDWaybill" />
+          </Key>
+          <Property Name="IDWaybill" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WaybillDate" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WaybillContext">
+          <Key>
+            <PropertyRef Name="IDContext" />
+          </Key>
+          <Property Name="MoveStatementIDStatement" Type="int" Nullable="false" />
+          <Property Name="WaybillIDWaybill" Type="int" Nullable="false" />
+          <Property Name="IDContext" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Worker">
+          <Key>
+            <PropertyRef Name="TableNum" />
+          </Key>
+          <Property Name="TableNum" Type="int" Nullable="false" />
+          <Property Name="FullName" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="AppointmentDate" Type="date" Nullable="false" />
+          <Property Name="EndDate" Type="date" />
+          <Property Name="SubdivisionID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WriteOffAct">
+          <Key>
+            <PropertyRef Name="IDWriteOffAct" />
+          </Key>
+          <Property Name="IDWriteOffAct" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WriteOffDate" Type="date" Nullable="false" />
+          <Property Name="WriteOffReasonIDReason" Type="int" />
+        </EntityType>
+        <EntityType Name="WriteOffReason">
+          <Key>
+            <PropertyRef Name="IDReason" />
+          </Key>
+          <Property Name="IDReason" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <Association Name="FKDefectiveL271518">
+          <End Role="Worker" Type="Self.Worker" Multiplicity="1" />
+          <End Role="DefectiveList" Type="Self.DefectiveList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Worker">
+              <PropertyRef Name="TableNum" />
+            </Principal>
+            <Dependent Role="DefectiveList">
+              <PropertyRef Name="WorkerTableNum" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKDefectiveL833326">
+          <End Role="WriteOffAct" Type="Self.WriteOffAct" Multiplicity="0..1" />
+          <End Role="DefectiveList" Type="Self.DefectiveList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WriteOffAct">
+              <PropertyRef Name="IDWriteOffAct" />
+            </Principal>
+            <Dependent Role="DefectiveList">
+              <PropertyRef Name="WriteOffActIDWriteOffAct" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKExpert769302">
+          <End Role="Subdivision" Type="Self.Subdivision" Multiplicity="1" />
+          <End Role="Expert" Type="Self.Expert" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subdivision">
+              <PropertyRef Name="IDSubdivision" />
+            </Principal>
+            <Dependent Role="Expert">
+              <PropertyRef Name="SubdivisionIDSubdivision" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKExpertise160847">
+          <End Role="DefectiveList" Type="Self.DefectiveList" Multiplicity="1" />
+          <End Role="Expertise" Type="Self.Expertise" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DefectiveList">
+              <PropertyRef Name="IDList" />
+            </Principal>
+            <Dependent Role="Expertise">
+              <PropertyRef Name="DefectiveListIDList" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKExpertise270232">
+          <End Role="Expert" Type="Self.Expert" Multiplicity="1" />
+          <End Role="Expertise" Type="Self.Expertise" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Expert">
+              <PropertyRef Name="IDExpert" />
+            </Principal>
+            <Dependent Role="Expertise">
+              <PropertyRef Name="ExpertIDExpert" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKExpertise786849">
+          <End Role="Inventory" Type="Self.Inventory" Multiplicity="0..1" />
+          <End Role="Expertise" Type="Self.Expertise" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inventory">
+              <PropertyRef Name="IDInventory" />
+            </Principal>
+            <Dependent Role="Expertise">
+              <PropertyRef Name="InventoryIDInventory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKInventory805665">
+          <End Role="ObjectType" Type="Self.ObjectType" Multiplicity="1" />
+          <End Role="Inventory" Type="Self.Inventory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ObjectType">
+              <PropertyRef Name="TypeID" />
+            </Principal>
+            <Dependent Role="Inventory">
+              <PropertyRef Name="ObjectTypeTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKInvSchedul683841">
+          <End Role="Worker" Type="Self.Worker" Multiplicity="1" />
+          <End Role="InvSchedule" Type="Self.InvSchedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Worker">
+              <PropertyRef Name="TableNum" />
+            </Principal>
+            <Dependent Role="InvSchedule">
+              <PropertyRef Name="WorkerNum" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKMoveStatem637032">
+          <End Role="Subdivision" Type="Self.Subdivision" Multiplicity="1" />
+          <End Role="MoveStatement" Type="Self.MoveStatement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subdivision">
+              <PropertyRef Name="IDSubdivision" />
+            </Principal>
+            <Dependent Role="MoveStatement">
+              <PropertyRef Name="ReceiverSubdivisionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKMoveStatem824083">
+          <End Role="Worker" Type="Self.Worker" Multiplicity="1" />
+          <End Role="MoveStatement" Type="Self.MoveStatement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Worker">
+              <PropertyRef Name="TableNum" />
+            </Principal>
+            <Dependent Role="MoveStatement">
+              <PropertyRef Name="WorkerTableNum" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKMoveStatem942769">
+          <End Role="Subdivision" Type="Self.Subdivision" Multiplicity="0..1" />
+          <End Role="MoveStatement" Type="Self.MoveStatement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subdivision">
+              <PropertyRef Name="IDSubdivision" />
+            </Principal>
+            <Dependent Role="MoveStatement">
+              <PropertyRef Name="SenderSubdivisionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKScheduleCo124961">
+          <End Role="Inventory" Type="Self.Inventory" Multiplicity="0..1" />
+          <End Role="ScheduleContext" Type="Self.ScheduleContext" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inventory">
+              <PropertyRef Name="IDInventory" />
+            </Principal>
+            <Dependent Role="ScheduleContext">
+              <PropertyRef Name="InventoryIDInventory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKScheduleCo502065">
+          <End Role="InvSchedule" Type="Self.InvSchedule" Multiplicity="1" />
+          <End Role="ScheduleContext" Type="Self.ScheduleContext" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InvSchedule">
+              <PropertyRef Name="IDSchedule" />
+            </Principal>
+            <Dependent Role="ScheduleContext">
+              <PropertyRef Name="ScheduleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKStatementC389980">
+          <End Role="MoveStatement" Type="Self.MoveStatement" Multiplicity="1" />
+          <End Role="StatementContext" Type="Self.StatementContext" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MoveStatement">
+              <PropertyRef Name="IDStatement" />
+            </Principal>
+            <Dependent Role="StatementContext">
+              <PropertyRef Name="MoveStatementIDStatement" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKStatementC692918">
+          <End Role="Inventory" Type="Self.Inventory" Multiplicity="0..1" />
+          <End Role="StatementContext" Type="Self.StatementContext" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inventory">
+              <PropertyRef Name="IDInventory" />
+            </Principal>
+            <Dependent Role="StatementContext">
+              <PropertyRef Name="InventoryIDInventory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKSubdivisio731963">
+          <End Role="Subdivision" Type="Self.Subdivision" Multiplicity="0..1" />
+          <End Role="Subdivision1" Type="Self.Subdivision" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subdivision">
+              <PropertyRef Name="IDSubdivision" />
+            </Principal>
+            <Dependent Role="Subdivision1">
+              <PropertyRef Name="MainSubdivisionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKSubdivisio85726">
+          <End Role="Building" Type="Self.Building" Multiplicity="1" />
+          <End Role="Subdivision" Type="Self.Subdivision" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Building">
+              <PropertyRef Name="IDBuilding" />
+            </Principal>
+            <Dependent Role="Subdivision">
+              <PropertyRef Name="BuildingIDBuilding" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKWaybillCon138646">
+          <End Role="Waybill" Type="Self.Waybill" Multiplicity="1" />
+          <End Role="WaybillContext" Type="Self.WaybillContext" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Waybill">
+              <PropertyRef Name="IDWaybill" />
+            </Principal>
+            <Dependent Role="WaybillContext">
+              <PropertyRef Name="WaybillIDWaybill" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKWaybillCon602493">
+          <End Role="MoveStatement" Type="Self.MoveStatement" Multiplicity="1" />
+          <End Role="WaybillContext" Type="Self.WaybillContext" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MoveStatement">
+              <PropertyRef Name="IDStatement" />
+            </Principal>
+            <Dependent Role="WaybillContext">
+              <PropertyRef Name="MoveStatementIDStatement" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKWorker680609">
+          <End Role="Subdivision" Type="Self.Subdivision" Multiplicity="1" />
+          <End Role="Worker" Type="Self.Worker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subdivision">
+              <PropertyRef Name="IDSubdivision" />
+            </Principal>
+            <Dependent Role="Worker">
+              <PropertyRef Name="SubdivisionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKWriteOffAc163622">
+          <End Role="WriteOffReason" Type="Self.WriteOffReason" Multiplicity="0..1" />
+          <End Role="WriteOffAct" Type="Self.WriteOffAct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WriteOffReason">
+              <PropertyRef Name="IDReason" />
+            </Principal>
+            <Dependent Role="WriteOffAct">
+              <PropertyRef Name="WriteOffReasonIDReason" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище InventarizationModelContainer">
+          <EntitySet Name="Building" EntityType="Self.Building" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DefectiveList" EntityType="Self.DefectiveList" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Expert" EntityType="Self.Expert" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Expertise" EntityType="Self.Expertise" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Inventory" EntityType="Self.Inventory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InvSchedule" EntityType="Self.InvSchedule" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MoveStatement" EntityType="Self.MoveStatement" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ObjectType" EntityType="Self.ObjectType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ScheduleContext" EntityType="Self.ScheduleContext" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StatementContext" EntityType="Self.StatementContext" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Subdivision" EntityType="Self.Subdivision" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Waybill" EntityType="Self.Waybill" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WaybillContext" EntityType="Self.WaybillContext" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Worker" EntityType="Self.Worker" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WriteOffAct" EntityType="Self.WriteOffAct" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WriteOffReason" EntityType="Self.WriteOffReason" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FKDefectiveL271518" Association="Self.FKDefectiveL271518">
+            <End Role="Worker" EntitySet="Worker" />
+            <End Role="DefectiveList" EntitySet="DefectiveList" />
+          </AssociationSet>
+          <AssociationSet Name="FKDefectiveL833326" Association="Self.FKDefectiveL833326">
+            <End Role="WriteOffAct" EntitySet="WriteOffAct" />
+            <End Role="DefectiveList" EntitySet="DefectiveList" />
+          </AssociationSet>
+          <AssociationSet Name="FKExpert769302" Association="Self.FKExpert769302">
+            <End Role="Subdivision" EntitySet="Subdivision" />
+            <End Role="Expert" EntitySet="Expert" />
+          </AssociationSet>
+          <AssociationSet Name="FKExpertise160847" Association="Self.FKExpertise160847">
+            <End Role="DefectiveList" EntitySet="DefectiveList" />
+            <End Role="Expertise" EntitySet="Expertise" />
+          </AssociationSet>
+          <AssociationSet Name="FKExpertise270232" Association="Self.FKExpertise270232">
+            <End Role="Expert" EntitySet="Expert" />
+            <End Role="Expertise" EntitySet="Expertise" />
+          </AssociationSet>
+          <AssociationSet Name="FKExpertise786849" Association="Self.FKExpertise786849">
+            <End Role="Inventory" EntitySet="Inventory" />
+            <End Role="Expertise" EntitySet="Expertise" />
+          </AssociationSet>
+          <AssociationSet Name="FKInventory805665" Association="Self.FKInventory805665">
+            <End Role="ObjectType" EntitySet="ObjectType" />
+            <End Role="Inventory" EntitySet="Inventory" />
+          </AssociationSet>
+          <AssociationSet Name="FKInvSchedul683841" Association="Self.FKInvSchedul683841">
+            <End Role="Worker" EntitySet="Worker" />
+            <End Role="InvSchedule" EntitySet="InvSchedule" />
+          </AssociationSet>
+          <AssociationSet Name="FKMoveStatem637032" Association="Self.FKMoveStatem637032">
+            <End Role="Subdivision" EntitySet="Subdivision" />
+            <End Role="MoveStatement" EntitySet="MoveStatement" />
+          </AssociationSet>
+          <AssociationSet Name="FKMoveStatem824083" Association="Self.FKMoveStatem824083">
+            <End Role="Worker" EntitySet="Worker" />
+            <End Role="MoveStatement" EntitySet="MoveStatement" />
+          </AssociationSet>
+          <AssociationSet Name="FKMoveStatem942769" Association="Self.FKMoveStatem942769">
+            <End Role="Subdivision" EntitySet="Subdivision" />
+            <End Role="MoveStatement" EntitySet="MoveStatement" />
+          </AssociationSet>
+          <AssociationSet Name="FKScheduleCo124961" Association="Self.FKScheduleCo124961">
+            <End Role="Inventory" EntitySet="Inventory" />
+            <End Role="ScheduleContext" EntitySet="ScheduleContext" />
+          </AssociationSet>
+          <AssociationSet Name="FKScheduleCo502065" Association="Self.FKScheduleCo502065">
+            <End Role="InvSchedule" EntitySet="InvSchedule" />
+            <End Role="ScheduleContext" EntitySet="ScheduleContext" />
+          </AssociationSet>
+          <AssociationSet Name="FKStatementC389980" Association="Self.FKStatementC389980">
+            <End Role="MoveStatement" EntitySet="MoveStatement" />
+            <End Role="StatementContext" EntitySet="StatementContext" />
+          </AssociationSet>
+          <AssociationSet Name="FKStatementC692918" Association="Self.FKStatementC692918">
+            <End Role="Inventory" EntitySet="Inventory" />
+            <End Role="StatementContext" EntitySet="StatementContext" />
+          </AssociationSet>
+          <AssociationSet Name="FKSubdivisio731963" Association="Self.FKSubdivisio731963">
+            <End Role="Subdivision" EntitySet="Subdivision" />
+            <End Role="Subdivision1" EntitySet="Subdivision" />
+          </AssociationSet>
+          <AssociationSet Name="FKSubdivisio85726" Association="Self.FKSubdivisio85726">
+            <End Role="Building" EntitySet="Building" />
+            <End Role="Subdivision" EntitySet="Subdivision" />
+          </AssociationSet>
+          <AssociationSet Name="FKWaybillCon138646" Association="Self.FKWaybillCon138646">
+            <End Role="Waybill" EntitySet="Waybill" />
+            <End Role="WaybillContext" EntitySet="WaybillContext" />
+          </AssociationSet>
+          <AssociationSet Name="FKWaybillCon602493" Association="Self.FKWaybillCon602493">
+            <End Role="MoveStatement" EntitySet="MoveStatement" />
+            <End Role="WaybillContext" EntitySet="WaybillContext" />
+          </AssociationSet>
+          <AssociationSet Name="FKWorker680609" Association="Self.FKWorker680609">
+            <End Role="Subdivision" EntitySet="Subdivision" />
+            <End Role="Worker" EntitySet="Worker" />
+          </AssociationSet>
+          <AssociationSet Name="FKWriteOffAc163622" Association="Self.FKWriteOffAc163622">
+            <End Role="WriteOffReason" EntitySet="WriteOffReason" />
+            <End Role="WriteOffAct" EntitySet="WriteOffAct" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="InventarizationModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Building">
+          <Key>
+            <PropertyRef Name="IDBuilding" />
+          </Key>
+          <Property Name="IDBuilding" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Subdivision" Relationship="Self.FKSubdivisio85726" FromRole="Building" ToRole="Subdivision" />
+        </EntityType>
+        <EntityType Name="DefectiveList">
+          <Key>
+            <PropertyRef Name="IDList" />
+          </Key>
+          <Property Name="IDList" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DocDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="WorkerTableNum" Type="Int32" Nullable="false" />
+          <Property Name="WriteOffActIDWriteOffAct" Type="Int32" />
+          <NavigationProperty Name="Worker" Relationship="Self.FKDefectiveL271518" FromRole="DefectiveList" ToRole="Worker" />
+          <NavigationProperty Name="WriteOffAct" Relationship="Self.FKDefectiveL833326" FromRole="DefectiveList" ToRole="WriteOffAct" />
+          <NavigationProperty Name="Expertise" Relationship="Self.FKExpertise160847" FromRole="DefectiveList" ToRole="Expertise" />
+        </EntityType>
+        <EntityType Name="Expert">
+          <Key>
+            <PropertyRef Name="IDExpert" />
+          </Key>
+          <Property Name="IDExpert" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FullName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SubdivisionIDSubdivision" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Subdivision" Relationship="Self.FKExpert769302" FromRole="Expert" ToRole="Subdivision" />
+          <NavigationProperty Name="Expertise" Relationship="Self.FKExpertise270232" FromRole="Expert" ToRole="Expertise" />
+        </EntityType>
+        <EntityType Name="Expertise">
+          <Key>
+            <PropertyRef Name="IDExpertise" />
+          </Key>
+          <Property Name="IDExpertise" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ExpertiseDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Commentary" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DefectiveListIDList" Type="Int32" Nullable="false" />
+          <Property Name="ExpertIDExpert" Type="Int32" Nullable="false" />
+          <Property Name="InventoryIDInventory" Type="Int32" />
+          <NavigationProperty Name="DefectiveList" Relationship="Self.FKExpertise160847" FromRole="Expertise" ToRole="DefectiveList" />
+          <NavigationProperty Name="Expert" Relationship="Self.FKExpertise270232" FromRole="Expertise" ToRole="Expert" />
+          <NavigationProperty Name="Inventory" Relationship="Self.FKExpertise786849" FromRole="Expertise" ToRole="Inventory" />
+        </EntityType>
+        <EntityType Name="Inventory">
+          <Key>
+            <PropertyRef Name="IDInventory" />
+          </Key>
+          <Property Name="IDInventory" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ManufactNum" Type="Int32" Nullable="false" />
+          <Property Name="FullName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="InvNumber" Type="Int32" Nullable="false" />
+          <Property Name="ReceiveDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Cost" Type="Decimal" Precision="19" Scale="2" Nullable="false" />
+          <Property Name="ObjectTypeTypeID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Expertise" Relationship="Self.FKExpertise786849" FromRole="Inventory" ToRole="Expertise" />
+          <NavigationProperty Name="ObjectType" Relationship="Self.FKInventory805665" FromRole="Inventory" ToRole="ObjectType" />
+          <NavigationProperty Name="ScheduleContext" Relationship="Self.FKScheduleCo124961" FromRole="Inventory" ToRole="ScheduleContext" />
+          <NavigationProperty Name="StatementContext" Relationship="Self.FKStatementC692918" FromRole="Inventory" ToRole="StatementContext" />
+        </EntityType>
+        <EntityType Name="InvSchedule">
+          <Key>
+            <PropertyRef Name="IDSchedule" />
+          </Key>
+          <Property Name="IDSchedule" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DocName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DocDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="WorkerNum" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Worker" Relationship="Self.FKInvSchedul683841" FromRole="InvSchedule" ToRole="Worker" />
+          <NavigationProperty Name="ScheduleContext" Relationship="Self.FKScheduleCo502065" FromRole="InvSchedule" ToRole="ScheduleContext" />
+        </EntityType>
+        <EntityType Name="MoveStatement">
+          <Key>
+            <PropertyRef Name="IDStatement" />
+          </Key>
+          <Property Name="IDStatement" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StatementDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="WorkerTableNum" Type="Int32" Nullable="false" />
+          <Property Name="SenderSubdivisionID" Type="Int32" />
+          <Property Name="ReceiverSubdivisionID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Subdivision" Relationship="Self.FKMoveStatem637032" FromRole="MoveStatement" ToRole="Subdivision" />
+          <NavigationProperty Name="Worker" Relationship="Self.FKMoveStatem824083" FromRole="MoveStatement" ToRole="Worker" />
+          <NavigationProperty Name="Subdivision1" Relationship="Self.FKMoveStatem942769" FromRole="MoveStatement" ToRole="Subdivision" />
+          <NavigationProperty Name="StatementContext" Relationship="Self.FKStatementC389980" FromRole="MoveStatement" ToRole="StatementContext" />
+          <NavigationProperty Name="WaybillContext" Relationship="Self.FKWaybillCon602493" FromRole="MoveStatement" ToRole="WaybillContext" />
+        </EntityType>
+        <EntityType Name="ObjectType">
+          <Key>
+            <PropertyRef Name="TypeID" />
+          </Key>
+          <Property Name="TypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TypeName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Inventory" Relationship="Self.FKInventory805665" FromRole="ObjectType" ToRole="Inventory" />
+        </EntityType>
+        <EntityType Name="ScheduleContext">
+          <Key>
+            <PropertyRef Name="IDContext" />
+          </Key>
+          <Property Name="ScheduleID" Type="Int32" Nullable="false" />
+          <Property Name="InventoryIDInventory" Type="Int32" />
+          <Property Name="IDContext" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Inventory" Relationship="Self.FKScheduleCo124961" FromRole="ScheduleContext" ToRole="Inventory" />
+          <NavigationProperty Name="InvSchedule" Relationship="Self.FKScheduleCo502065" FromRole="ScheduleContext" ToRole="InvSchedule" />
+        </EntityType>
+        <EntityType Name="StatementContext">
+          <Key>
+            <PropertyRef Name="IDContext" />
+          </Key>
+          <Property Name="MoveStatementIDStatement" Type="Int32" Nullable="false" />
+          <Property Name="InventoryIDInventory" Type="Int32" />
+          <Property Name="IDContext" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Inventory" Relationship="Self.FKStatementC692918" FromRole="StatementContext" ToRole="Inventory" />
+          <NavigationProperty Name="MoveStatement" Relationship="Self.FKStatementC389980" FromRole="StatementContext" ToRole="MoveStatement" />
+        </EntityType>
+        <EntityType Name="Subdivision">
+          <Key>
+            <PropertyRef Name="IDSubdivision" />
+          </Key>
+          <Property Name="IDSubdivision" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MainSubdivisionID" Type="Int32" />
+          <Property Name="DissolutionDate" Type="DateTime" Precision="0" />
+          <Property Name="BuildingIDBuilding" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Building" Relationship="Self.FKSubdivisio85726" FromRole="Subdivision" ToRole="Building" />
+          <NavigationProperty Name="Expert" Relationship="Self.FKExpert769302" FromRole="Subdivision" ToRole="Expert" />
+          <NavigationProperty Name="MoveStatement" Relationship="Self.FKMoveStatem637032" FromRole="Subdivision" ToRole="MoveStatement" />
+          <NavigationProperty Name="MoveStatement1" Relationship="Self.FKMoveStatem942769" FromRole="Subdivision" ToRole="MoveStatement" />
+          <NavigationProperty Name="Subdivision1" Relationship="Self.FKSubdivisio731963" FromRole="Subdivision" ToRole="Subdivision1" />
+          <NavigationProperty Name="Subdivision2" Relationship="Self.FKSubdivisio731963" FromRole="Subdivision1" ToRole="Subdivision" />
+          <NavigationProperty Name="Worker" Relationship="Self.FKWorker680609" FromRole="Subdivision" ToRole="Worker" />
+        </EntityType>
+        <EntityType Name="Waybill">
+          <Key>
+            <PropertyRef Name="IDWaybill" />
+          </Key>
+          <Property Name="IDWaybill" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WaybillDate" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="WaybillContext" Relationship="Self.FKWaybillCon138646" FromRole="Waybill" ToRole="WaybillContext" />
+        </EntityType>
+        <EntityType Name="WaybillContext">
+          <Key>
+            <PropertyRef Name="IDContext" />
+          </Key>
+          <Property Name="MoveStatementIDStatement" Type="Int32" Nullable="false" />
+          <Property Name="WaybillIDWaybill" Type="Int32" Nullable="false" />
+          <Property Name="IDContext" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="MoveStatement" Relationship="Self.FKWaybillCon602493" FromRole="WaybillContext" ToRole="MoveStatement" />
+          <NavigationProperty Name="Waybill" Relationship="Self.FKWaybillCon138646" FromRole="WaybillContext" ToRole="Waybill" />
+        </EntityType>
+        <EntityType Name="Worker">
+          <Key>
+            <PropertyRef Name="TableNum" />
+          </Key>
+          <Property Name="TableNum" Type="Int32" Nullable="false" />
+          <Property Name="FullName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AppointmentDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="EndDate" Type="DateTime" Precision="0" />
+          <Property Name="SubdivisionID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="DefectiveList" Relationship="Self.FKDefectiveL271518" FromRole="Worker" ToRole="DefectiveList" />
+          <NavigationProperty Name="InvSchedule" Relationship="Self.FKInvSchedul683841" FromRole="Worker" ToRole="InvSchedule" />
+          <NavigationProperty Name="MoveStatement" Relationship="Self.FKMoveStatem824083" FromRole="Worker" ToRole="MoveStatement" />
+          <NavigationProperty Name="Subdivision" Relationship="Self.FKWorker680609" FromRole="Worker" ToRole="Subdivision" />
+        </EntityType>
+        <EntityType Name="WriteOffAct">
+          <Key>
+            <PropertyRef Name="IDWriteOffAct" />
+          </Key>
+          <Property Name="IDWriteOffAct" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WriteOffDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="WriteOffReasonIDReason" Type="Int32" />
+          <NavigationProperty Name="DefectiveList" Relationship="Self.FKDefectiveL833326" FromRole="WriteOffAct" ToRole="DefectiveList" />
+          <NavigationProperty Name="WriteOffReason" Relationship="Self.FKWriteOffAc163622" FromRole="WriteOffAct" ToRole="WriteOffReason" />
+        </EntityType>
+        <EntityType Name="WriteOffReason">
+          <Key>
+            <PropertyRef Name="IDReason" />
+          </Key>
+          <Property Name="IDReason" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="WriteOffAct" Relationship="Self.FKWriteOffAc163622" FromRole="WriteOffReason" ToRole="WriteOffAct" />
+        </EntityType>
+        <Association Name="FKSubdivisio85726">
+          <End Role="Building" Type="Self.Building" Multiplicity="1" />
+          <End Role="Subdivision" Type="Self.Subdivision" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Building">
+              <PropertyRef Name="IDBuilding" />
+            </Principal>
+            <Dependent Role="Subdivision">
+              <PropertyRef Name="BuildingIDBuilding" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKDefectiveL271518">
+          <End Role="Worker" Type="Self.Worker" Multiplicity="1" />
+          <End Role="DefectiveList" Type="Self.DefectiveList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Worker">
+              <PropertyRef Name="TableNum" />
+            </Principal>
+            <Dependent Role="DefectiveList">
+              <PropertyRef Name="WorkerTableNum" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKDefectiveL833326">
+          <End Role="WriteOffAct" Type="Self.WriteOffAct" Multiplicity="0..1" />
+          <End Role="DefectiveList" Type="Self.DefectiveList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WriteOffAct">
+              <PropertyRef Name="IDWriteOffAct" />
+            </Principal>
+            <Dependent Role="DefectiveList">
+              <PropertyRef Name="WriteOffActIDWriteOffAct" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKExpertise160847">
+          <End Role="DefectiveList" Type="Self.DefectiveList" Multiplicity="1" />
+          <End Role="Expertise" Type="Self.Expertise" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DefectiveList">
+              <PropertyRef Name="IDList" />
+            </Principal>
+            <Dependent Role="Expertise">
+              <PropertyRef Name="DefectiveListIDList" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKExpert769302">
+          <End Role="Subdivision" Type="Self.Subdivision" Multiplicity="1" />
+          <End Role="Expert" Type="Self.Expert" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subdivision">
+              <PropertyRef Name="IDSubdivision" />
+            </Principal>
+            <Dependent Role="Expert">
+              <PropertyRef Name="SubdivisionIDSubdivision" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKExpertise270232">
+          <End Role="Expert" Type="Self.Expert" Multiplicity="1" />
+          <End Role="Expertise" Type="Self.Expertise" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Expert">
+              <PropertyRef Name="IDExpert" />
+            </Principal>
+            <Dependent Role="Expertise">
+              <PropertyRef Name="ExpertIDExpert" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKExpertise786849">
+          <End Role="Inventory" Type="Self.Inventory" Multiplicity="0..1" />
+          <End Role="Expertise" Type="Self.Expertise" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inventory">
+              <PropertyRef Name="IDInventory" />
+            </Principal>
+            <Dependent Role="Expertise">
+              <PropertyRef Name="InventoryIDInventory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKInventory805665">
+          <End Role="ObjectType" Type="Self.ObjectType" Multiplicity="1" />
+          <End Role="Inventory" Type="Self.Inventory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ObjectType">
+              <PropertyRef Name="TypeID" />
+            </Principal>
+            <Dependent Role="Inventory">
+              <PropertyRef Name="ObjectTypeTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKScheduleCo124961">
+          <End Role="Inventory" Type="Self.Inventory" Multiplicity="0..1" />
+          <End Role="ScheduleContext" Type="Self.ScheduleContext" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inventory">
+              <PropertyRef Name="IDInventory" />
+            </Principal>
+            <Dependent Role="ScheduleContext">
+              <PropertyRef Name="InventoryIDInventory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKStatementC692918">
+          <End Role="Inventory" Type="Self.Inventory" Multiplicity="0..1" />
+          <End Role="StatementContext" Type="Self.StatementContext" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inventory">
+              <PropertyRef Name="IDInventory" />
+            </Principal>
+            <Dependent Role="StatementContext">
+              <PropertyRef Name="InventoryIDInventory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKInvSchedul683841">
+          <End Role="Worker" Type="Self.Worker" Multiplicity="1" />
+          <End Role="InvSchedule" Type="Self.InvSchedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Worker">
+              <PropertyRef Name="TableNum" />
+            </Principal>
+            <Dependent Role="InvSchedule">
+              <PropertyRef Name="WorkerNum" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKScheduleCo502065">
+          <End Role="InvSchedule" Type="Self.InvSchedule" Multiplicity="1" />
+          <End Role="ScheduleContext" Type="Self.ScheduleContext" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InvSchedule">
+              <PropertyRef Name="IDSchedule" />
+            </Principal>
+            <Dependent Role="ScheduleContext">
+              <PropertyRef Name="ScheduleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKMoveStatem637032">
+          <End Role="Subdivision" Type="Self.Subdivision" Multiplicity="1" />
+          <End Role="MoveStatement" Type="Self.MoveStatement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subdivision">
+              <PropertyRef Name="IDSubdivision" />
+            </Principal>
+            <Dependent Role="MoveStatement">
+              <PropertyRef Name="ReceiverSubdivisionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKMoveStatem824083">
+          <End Role="Worker" Type="Self.Worker" Multiplicity="1" />
+          <End Role="MoveStatement" Type="Self.MoveStatement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Worker">
+              <PropertyRef Name="TableNum" />
+            </Principal>
+            <Dependent Role="MoveStatement">
+              <PropertyRef Name="WorkerTableNum" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKMoveStatem942769">
+          <End Role="Subdivision" Type="Self.Subdivision" Multiplicity="0..1" />
+          <End Role="MoveStatement" Type="Self.MoveStatement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subdivision">
+              <PropertyRef Name="IDSubdivision" />
+            </Principal>
+            <Dependent Role="MoveStatement">
+              <PropertyRef Name="SenderSubdivisionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKStatementC389980">
+          <End Role="MoveStatement" Type="Self.MoveStatement" Multiplicity="1" />
+          <End Role="StatementContext" Type="Self.StatementContext" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MoveStatement">
+              <PropertyRef Name="IDStatement" />
+            </Principal>
+            <Dependent Role="StatementContext">
+              <PropertyRef Name="MoveStatementIDStatement" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKWaybillCon602493">
+          <End Role="MoveStatement" Type="Self.MoveStatement" Multiplicity="1" />
+          <End Role="WaybillContext" Type="Self.WaybillContext" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MoveStatement">
+              <PropertyRef Name="IDStatement" />
+            </Principal>
+            <Dependent Role="WaybillContext">
+              <PropertyRef Name="MoveStatementIDStatement" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKSubdivisio731963">
+          <End Role="Subdivision" Type="Self.Subdivision" Multiplicity="0..1" />
+          <End Role="Subdivision1" Type="Self.Subdivision" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subdivision">
+              <PropertyRef Name="IDSubdivision" />
+            </Principal>
+            <Dependent Role="Subdivision1">
+              <PropertyRef Name="MainSubdivisionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKWorker680609">
+          <End Role="Subdivision" Type="Self.Subdivision" Multiplicity="1" />
+          <End Role="Worker" Type="Self.Worker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subdivision">
+              <PropertyRef Name="IDSubdivision" />
+            </Principal>
+            <Dependent Role="Worker">
+              <PropertyRef Name="SubdivisionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKWaybillCon138646">
+          <End Role="Waybill" Type="Self.Waybill" Multiplicity="1" />
+          <End Role="WaybillContext" Type="Self.WaybillContext" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Waybill">
+              <PropertyRef Name="IDWaybill" />
+            </Principal>
+            <Dependent Role="WaybillContext">
+              <PropertyRef Name="WaybillIDWaybill" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKWriteOffAc163622">
+          <End Role="WriteOffReason" Type="Self.WriteOffReason" Multiplicity="0..1" />
+          <End Role="WriteOffAct" Type="Self.WriteOffAct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WriteOffReason">
+              <PropertyRef Name="IDReason" />
+            </Principal>
+            <Dependent Role="WriteOffAct">
+              <PropertyRef Name="WriteOffReasonIDReason" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="InventarizationEntities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Building" EntityType="Self.Building" />
+          <EntitySet Name="DefectiveList" EntityType="Self.DefectiveList" />
+          <EntitySet Name="Expert" EntityType="Self.Expert" />
+          <EntitySet Name="Expertise" EntityType="Self.Expertise" />
+          <EntitySet Name="Inventory" EntityType="Self.Inventory" />
+          <EntitySet Name="InvSchedule" EntityType="Self.InvSchedule" />
+          <EntitySet Name="MoveStatement" EntityType="Self.MoveStatement" />
+          <EntitySet Name="ObjectType" EntityType="Self.ObjectType" />
+          <EntitySet Name="ScheduleContext" EntityType="Self.ScheduleContext" />
+          <EntitySet Name="StatementContext" EntityType="Self.StatementContext" />
+          <EntitySet Name="Subdivision" EntityType="Self.Subdivision" />
+          <EntitySet Name="Waybill" EntityType="Self.Waybill" />
+          <EntitySet Name="WaybillContext" EntityType="Self.WaybillContext" />
+          <EntitySet Name="Worker" EntityType="Self.Worker" />
+          <EntitySet Name="WriteOffAct" EntityType="Self.WriteOffAct" />
+          <EntitySet Name="WriteOffReason" EntityType="Self.WriteOffReason" />
+          <AssociationSet Name="FKSubdivisio85726" Association="Self.FKSubdivisio85726">
+            <End Role="Building" EntitySet="Building" />
+            <End Role="Subdivision" EntitySet="Subdivision" />
+          </AssociationSet>
+          <AssociationSet Name="FKDefectiveL271518" Association="Self.FKDefectiveL271518">
+            <End Role="Worker" EntitySet="Worker" />
+            <End Role="DefectiveList" EntitySet="DefectiveList" />
+          </AssociationSet>
+          <AssociationSet Name="FKDefectiveL833326" Association="Self.FKDefectiveL833326">
+            <End Role="WriteOffAct" EntitySet="WriteOffAct" />
+            <End Role="DefectiveList" EntitySet="DefectiveList" />
+          </AssociationSet>
+          <AssociationSet Name="FKExpertise160847" Association="Self.FKExpertise160847">
+            <End Role="DefectiveList" EntitySet="DefectiveList" />
+            <End Role="Expertise" EntitySet="Expertise" />
+          </AssociationSet>
+          <AssociationSet Name="FKExpert769302" Association="Self.FKExpert769302">
+            <End Role="Subdivision" EntitySet="Subdivision" />
+            <End Role="Expert" EntitySet="Expert" />
+          </AssociationSet>
+          <AssociationSet Name="FKExpertise270232" Association="Self.FKExpertise270232">
+            <End Role="Expert" EntitySet="Expert" />
+            <End Role="Expertise" EntitySet="Expertise" />
+          </AssociationSet>
+          <AssociationSet Name="FKExpertise786849" Association="Self.FKExpertise786849">
+            <End Role="Inventory" EntitySet="Inventory" />
+            <End Role="Expertise" EntitySet="Expertise" />
+          </AssociationSet>
+          <AssociationSet Name="FKInventory805665" Association="Self.FKInventory805665">
+            <End Role="ObjectType" EntitySet="ObjectType" />
+            <End Role="Inventory" EntitySet="Inventory" />
+          </AssociationSet>
+          <AssociationSet Name="FKScheduleCo124961" Association="Self.FKScheduleCo124961">
+            <End Role="Inventory" EntitySet="Inventory" />
+            <End Role="ScheduleContext" EntitySet="ScheduleContext" />
+          </AssociationSet>
+          <AssociationSet Name="FKStatementC692918" Association="Self.FKStatementC692918">
+            <End Role="Inventory" EntitySet="Inventory" />
+            <End Role="StatementContext" EntitySet="StatementContext" />
+          </AssociationSet>
+          <AssociationSet Name="FKInvSchedul683841" Association="Self.FKInvSchedul683841">
+            <End Role="Worker" EntitySet="Worker" />
+            <End Role="InvSchedule" EntitySet="InvSchedule" />
+          </AssociationSet>
+          <AssociationSet Name="FKScheduleCo502065" Association="Self.FKScheduleCo502065">
+            <End Role="InvSchedule" EntitySet="InvSchedule" />
+            <End Role="ScheduleContext" EntitySet="ScheduleContext" />
+          </AssociationSet>
+          <AssociationSet Name="FKMoveStatem637032" Association="Self.FKMoveStatem637032">
+            <End Role="Subdivision" EntitySet="Subdivision" />
+            <End Role="MoveStatement" EntitySet="MoveStatement" />
+          </AssociationSet>
+          <AssociationSet Name="FKMoveStatem824083" Association="Self.FKMoveStatem824083">
+            <End Role="Worker" EntitySet="Worker" />
+            <End Role="MoveStatement" EntitySet="MoveStatement" />
+          </AssociationSet>
+          <AssociationSet Name="FKMoveStatem942769" Association="Self.FKMoveStatem942769">
+            <End Role="Subdivision" EntitySet="Subdivision" />
+            <End Role="MoveStatement" EntitySet="MoveStatement" />
+          </AssociationSet>
+          <AssociationSet Name="FKStatementC389980" Association="Self.FKStatementC389980">
+            <End Role="MoveStatement" EntitySet="MoveStatement" />
+            <End Role="StatementContext" EntitySet="StatementContext" />
+          </AssociationSet>
+          <AssociationSet Name="FKWaybillCon602493" Association="Self.FKWaybillCon602493">
+            <End Role="MoveStatement" EntitySet="MoveStatement" />
+            <End Role="WaybillContext" EntitySet="WaybillContext" />
+          </AssociationSet>
+          <AssociationSet Name="FKSubdivisio731963" Association="Self.FKSubdivisio731963">
+            <End Role="Subdivision" EntitySet="Subdivision" />
+            <End Role="Subdivision1" EntitySet="Subdivision" />
+          </AssociationSet>
+          <AssociationSet Name="FKWorker680609" Association="Self.FKWorker680609">
+            <End Role="Subdivision" EntitySet="Subdivision" />
+            <End Role="Worker" EntitySet="Worker" />
+          </AssociationSet>
+          <AssociationSet Name="FKWaybillCon138646" Association="Self.FKWaybillCon138646">
+            <End Role="Waybill" EntitySet="Waybill" />
+            <End Role="WaybillContext" EntitySet="WaybillContext" />
+          </AssociationSet>
+          <AssociationSet Name="FKWriteOffAc163622" Association="Self.FKWriteOffAc163622">
+            <End Role="WriteOffReason" EntitySet="WriteOffReason" />
+            <End Role="WriteOffAct" EntitySet="WriteOffAct" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище InventarizationModelContainer" CdmEntityContainer="InventarizationEntities2">
+          <EntitySetMapping Name="Building">
+            <EntityTypeMapping TypeName="InventarizationModel.Building">
+              <MappingFragment StoreEntitySet="Building">
+                <ScalarProperty Name="IDBuilding" ColumnName="IDBuilding" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DefectiveList">
+            <EntityTypeMapping TypeName="InventarizationModel.DefectiveList">
+              <MappingFragment StoreEntitySet="DefectiveList">
+                <ScalarProperty Name="IDList" ColumnName="IDList" />
+                <ScalarProperty Name="DocDate" ColumnName="DocDate" />
+                <ScalarProperty Name="WorkerTableNum" ColumnName="WorkerTableNum" />
+                <ScalarProperty Name="WriteOffActIDWriteOffAct" ColumnName="WriteOffActIDWriteOffAct" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Expert">
+            <EntityTypeMapping TypeName="InventarizationModel.Expert">
+              <MappingFragment StoreEntitySet="Expert">
+                <ScalarProperty Name="IDExpert" ColumnName="IDExpert" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="SubdivisionIDSubdivision" ColumnName="SubdivisionIDSubdivision" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Expertise">
+            <EntityTypeMapping TypeName="InventarizationModel.Expertise">
+              <MappingFragment StoreEntitySet="Expertise">
+                <ScalarProperty Name="IDExpertise" ColumnName="IDExpertise" />
+                <ScalarProperty Name="ExpertiseDate" ColumnName="ExpertiseDate" />
+                <ScalarProperty Name="Commentary" ColumnName="Commentary" />
+                <ScalarProperty Name="DefectiveListIDList" ColumnName="DefectiveListIDList" />
+                <ScalarProperty Name="ExpertIDExpert" ColumnName="ExpertIDExpert" />
+                <ScalarProperty Name="InventoryIDInventory" ColumnName="InventoryIDInventory" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Inventory">
+            <EntityTypeMapping TypeName="InventarizationModel.Inventory">
+              <MappingFragment StoreEntitySet="Inventory">
+                <ScalarProperty Name="IDInventory" ColumnName="IDInventory" />
+                <ScalarProperty Name="ManufactNum" ColumnName="ManufactNum" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="InvNumber" ColumnName="InvNumber" />
+                <ScalarProperty Name="ReceiveDate" ColumnName="ReceiveDate" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="ObjectTypeTypeID" ColumnName="ObjectTypeTypeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InvSchedule">
+            <EntityTypeMapping TypeName="InventarizationModel.InvSchedule">
+              <MappingFragment StoreEntitySet="InvSchedule">
+                <ScalarProperty Name="IDSchedule" ColumnName="IDSchedule" />
+                <ScalarProperty Name="DocName" ColumnName="DocName" />
+                <ScalarProperty Name="DocDate" ColumnName="DocDate" />
+                <ScalarProperty Name="WorkerNum" ColumnName="WorkerNum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MoveStatement">
+            <EntityTypeMapping TypeName="InventarizationModel.MoveStatement">
+              <MappingFragment StoreEntitySet="MoveStatement">
+                <ScalarProperty Name="IDStatement" ColumnName="IDStatement" />
+                <ScalarProperty Name="StatementDate" ColumnName="StatementDate" />
+                <ScalarProperty Name="WorkerTableNum" ColumnName="WorkerTableNum" />
+                <ScalarProperty Name="SenderSubdivisionID" ColumnName="SenderSubdivisionID" />
+                <ScalarProperty Name="ReceiverSubdivisionID" ColumnName="ReceiverSubdivisionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ObjectType">
+            <EntityTypeMapping TypeName="InventarizationModel.ObjectType">
+              <MappingFragment StoreEntitySet="ObjectType">
+                <ScalarProperty Name="TypeID" ColumnName="TypeID" />
+                <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ScheduleContext">
+            <EntityTypeMapping TypeName="InventarizationModel.ScheduleContext">
+              <MappingFragment StoreEntitySet="ScheduleContext">
+                <ScalarProperty Name="ScheduleID" ColumnName="ScheduleID" />
+                <ScalarProperty Name="InventoryIDInventory" ColumnName="InventoryIDInventory" />
+                <ScalarProperty Name="IDContext" ColumnName="IDContext" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StatementContext">
+            <EntityTypeMapping TypeName="InventarizationModel.StatementContext">
+              <MappingFragment StoreEntitySet="StatementContext">
+                <ScalarProperty Name="MoveStatementIDStatement" ColumnName="MoveStatementIDStatement" />
+                <ScalarProperty Name="InventoryIDInventory" ColumnName="InventoryIDInventory" />
+                <ScalarProperty Name="IDContext" ColumnName="IDContext" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Subdivision">
+            <EntityTypeMapping TypeName="InventarizationModel.Subdivision">
+              <MappingFragment StoreEntitySet="Subdivision">
+                <ScalarProperty Name="IDSubdivision" ColumnName="IDSubdivision" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="MainSubdivisionID" ColumnName="MainSubdivisionID" />
+                <ScalarProperty Name="DissolutionDate" ColumnName="DissolutionDate" />
+                <ScalarProperty Name="BuildingIDBuilding" ColumnName="BuildingIDBuilding" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Waybill">
+            <EntityTypeMapping TypeName="InventarizationModel.Waybill">
+              <MappingFragment StoreEntitySet="Waybill">
+                <ScalarProperty Name="IDWaybill" ColumnName="IDWaybill" />
+                <ScalarProperty Name="WaybillDate" ColumnName="WaybillDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WaybillContext">
+            <EntityTypeMapping TypeName="InventarizationModel.WaybillContext">
+              <MappingFragment StoreEntitySet="WaybillContext">
+                <ScalarProperty Name="MoveStatementIDStatement" ColumnName="MoveStatementIDStatement" />
+                <ScalarProperty Name="WaybillIDWaybill" ColumnName="WaybillIDWaybill" />
+                <ScalarProperty Name="IDContext" ColumnName="IDContext" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Worker">
+            <EntityTypeMapping TypeName="InventarizationModel.Worker">
+              <MappingFragment StoreEntitySet="Worker">
+                <ScalarProperty Name="TableNum" ColumnName="TableNum" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="AppointmentDate" ColumnName="AppointmentDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="SubdivisionID" ColumnName="SubdivisionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WriteOffAct">
+            <EntityTypeMapping TypeName="InventarizationModel.WriteOffAct">
+              <MappingFragment StoreEntitySet="WriteOffAct">
+                <ScalarProperty Name="IDWriteOffAct" ColumnName="IDWriteOffAct" />
+                <ScalarProperty Name="WriteOffDate" ColumnName="WriteOffDate" />
+                <ScalarProperty Name="WriteOffReasonIDReason" ColumnName="WriteOffReasonIDReason" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WriteOffReason">
+            <EntityTypeMapping TypeName="InventarizationModel.WriteOffReason">
+              <MappingFragment StoreEntitySet="WriteOffReason">
+                <ScalarProperty Name="IDReason" ColumnName="IDReason" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
