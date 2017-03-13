@@ -17,6 +17,18 @@ namespace Invent.Domain
         private int _ObjectType;
         private string _ObjectName;
 
+        public InventoryItem(int idinv, int manufact, string fullname, int invnum, DateTime receive, decimal cost, int objtype, string objname)
+        {
+            _IDInventory = idinv;
+            _ManufactNum = manufact;
+            _FullName = fullname;
+            _InvNumber = invnum;
+            _ReceiveDate = receive;
+            _Cost = cost;
+            _ObjectType = objtype;
+            _ObjectName = objname;
+        }
+
         public int IDInventory
         {
             get

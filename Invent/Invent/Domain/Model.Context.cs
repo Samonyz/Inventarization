@@ -13,10 +13,10 @@ namespace Invent.Domain
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class InventarizationEntities2 : DbContext
+    public partial class InventarizationEntities3 : DbContext
     {
-        public InventarizationEntities2()
-            : base("name=InventarizationEntities2")
+        public InventarizationEntities3()
+            : base("name=InventarizationEntities3")
         {
         }
     

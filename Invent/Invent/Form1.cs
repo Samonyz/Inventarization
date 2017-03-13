@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Invent.Domain;
 
 namespace Invent
 {
@@ -19,9 +20,9 @@ namespace Invent
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "inventarizationDataSet.Inventory". При необходимости она может быть перемещена или удалена.
-            this.inventoryTableAdapter.Fill(this.inventarizationDataSet.Inventory);
-
+            ViewController vc = new ViewController();
+            inventoryItemBindingSource.DataSource = null;
+            inventoryItemBindingSource.DataSource = vc.invList;
         }
     }
 }

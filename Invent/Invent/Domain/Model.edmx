@@ -936,7 +936,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="InventarizationEntities2" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="InventarizationEntities3" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Building" EntityType="Self.Building" />
           <EntitySet Name="DefectiveList" EntityType="Self.DefectiveList" />
           <EntitySet Name="Expert" EntityType="Self.Expert" />
@@ -1043,7 +1043,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище InventarizationModelContainer" CdmEntityContainer="InventarizationEntities2">
+        <EntityContainerMapping StorageEntityContainer="Хранилище InventarizationModelContainer" CdmEntityContainer="InventarizationEntities3">
           <EntitySetMapping Name="Building">
             <EntityTypeMapping TypeName="InventarizationModel.Building">
               <MappingFragment StoreEntitySet="Building">
