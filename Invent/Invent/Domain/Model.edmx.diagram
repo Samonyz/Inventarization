@@ -4,15 +4,15 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="1d1f39a5455042a8bfd7bb5adcfc2921" Name="Diagram1">
+      <Diagram DiagramId="1d1f39a5455042a8bfd7bb5adcfc2921" Name="Diagram1" ZoomLevel="74">
         <EntityTypeShape EntityType="InventarizationModel.Building" Width="1.5" PointX="0.75" PointY="7.875" IsExpanded="true" />
         <EntityTypeShape EntityType="InventarizationModel.DefectiveList" Width="1.5" PointX="10.5" PointY="12.5" IsExpanded="true" />
         <EntityTypeShape EntityType="InventarizationModel.Expert" Width="1.5" PointX="5.25" PointY="5.875" IsExpanded="true" />
         <EntityTypeShape EntityType="InventarizationModel.Expertise" Width="1.5" PointX="7.5" PointY="5.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="InventarizationModel.Inventory" Width="1.5" PointX="5.25" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventarizationModel.Inventory" Width="1.5" PointX="5.25" PointY="2.375" IsExpanded="true" />
         <EntityTypeShape EntityType="InventarizationModel.InvSchedule" Width="1.5" PointX="7.5" PointY="15.75" IsExpanded="true" />
         <EntityTypeShape EntityType="InventarizationModel.MoveStatement" Width="1.5" PointX="7.5" PointY="9.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="InventarizationModel.ObjectType" Width="1.5" PointX="3" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventarizationModel.ObjectType" Width="1.5" PointX="3.125" PointY="1.5" IsExpanded="true" />
         <EntityTypeShape EntityType="InventarizationModel.ScheduleContext" Width="1.5" PointX="9.75" PointY="15.875" IsExpanded="true" />
         <EntityTypeShape EntityType="InventarizationModel.StatementContext" Width="1.5" PointX="9.75" PointY="9" IsExpanded="true" />
         <EntityTypeShape EntityType="InventarizationModel.Subdivision" Width="1.5" PointX="3" PointY="7" IsExpanded="true" />

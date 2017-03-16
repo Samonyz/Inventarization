@@ -16,8 +16,10 @@ namespace Invent.Domain
         private decimal _Cost;
         private int _ObjectType;
         private string _ObjectName;
+        private string _Subdivision;
+        private int _SubdivisionID;
 
-        public InventoryItem(int idinv, int manufact, string fullname, int invnum, DateTime receive, decimal cost, int objtype, string objname)
+        public InventoryItem(int idinv, int manufact, string fullname, int invnum, DateTime receive, decimal cost, int objtype, string objname, string subdiv, int subid)
         {
             _IDInventory = idinv;
             _ManufactNum = manufact;
@@ -27,6 +29,24 @@ namespace Invent.Domain
             _Cost = cost;
             _ObjectType = objtype;
             _ObjectName = objname;
+            _Subdivision = subdiv;
+            _SubdivisionID = subid;
+        }
+
+        public int SubdivisionID
+        {
+            get
+            {
+                return _SubdivisionID;
+            }
+        }
+
+        public string Subdivision
+        {
+            get
+            {
+                return _Subdivision;
+            }
         }
 
         public int IDInventory

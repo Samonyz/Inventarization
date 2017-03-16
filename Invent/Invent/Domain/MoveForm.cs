@@ -7,24 +7,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Invent.Domain;
 
-namespace Invent
+namespace Invent.Domain
 {
-    public partial class Form1 : Form
+    public partial class MoveForm : Form
     {
-        public Form1()
+        private ViewController Vc;
+        public MoveForm(ViewController vc)
         {
             InitializeComponent();
+            Vc = vc;
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void MoveForm_Load(object sender, EventArgs e)
         {
-            ViewController vc = new ViewController();
             inventoryItemBindingSource.DataSource = null;
-            inventoryItemBindingSource.DataSource = vc.AllInventory();
-            MoveForm mf = new MoveForm(vc);
-            mf.ShowDialog(this);
+            inventoryItemBindingSource.DataSource = Vc.SubdivisionInventory(new Subdivision());
         }
     }
 }
