@@ -32,6 +32,22 @@ namespace Invent.Domain
             return InvList;
         }
 
+        public List<LocalSubdiv> subdivs()
+        {
+            List<LocalSubdiv> list = new List<LocalSubdiv>();
+            foreach(Subdivision s in Model.Subdivision)
+            {
+                list.Add(new LocalSubdiv(s.IDSubdivision, s.Name, s.MainSubdivisionID, s.BuildingIDBuilding, s.DissolutionDate));
+            }
+            return list;
+        }
+
+        public Subdivision getSubdivOnId(int id)
+        {
+            Subdivision sd = Model.Subdivision.FirstOrDefault(x => x.IDSubdivision == id);
+            return sd;
+        }
+
         public List<InventoryItem> SubdivisionInventory(Subdivision sd)
         {
             List<InventoryItem> InvList = new List<InventoryItem>();
@@ -45,7 +61,7 @@ namespace Invent.Domain
                 InventoryItem invitem = new InventoryItem(inv.IDInventory, inv.ManufactNum, inv.FullName, inv.InvNumber, inv.ReceiveDate, inv.Cost, inv.ObjectTypeTypeID, inv.ObjectType.TypeName, name, id);
                 InvList.Add(invitem);
             }
-            List<InventoryItem> SubInvList = InvList.Where(x => x.SubdivisionID == 1).ToList();
+            List<InventoryItem> SubInvList = InvList.Where(x => x.SubdivisionID == sd.IDSubdivision).ToList();
             return SubInvList;
         }
 
