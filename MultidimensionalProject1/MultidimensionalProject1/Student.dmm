@@ -1,0 +1,547 @@
+﻿<MiningStructure xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="129a5858-adff-4b3d-baf5-232c20794121" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Student</ID>
+  <Name>Student</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>MDXFilterComponent</Name>
+      <Value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;Filter xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/SQLServer/reporting/QuerySpecification"&gt;&lt;FilterItems xmlns="http://schemas.microsoft.com/AnalysisServices/QueryDefinition" /&gt;&lt;/Filter&gt;</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+  <State>Unprocessed</State>
+  <Source xsi:type="CubeDimensionBinding" dwd:design-time-name="02c9bf20-0e13-4608-a608-347cdb4f4b8c">
+    <DataSourceID>.</DataSourceID>
+    <CubeID>Progress OLAP</CubeID>
+    <CubeDimensionID>Student</CubeDimensionID>
+    <Filter></Filter>
+  </Source>
+  <Columns>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="54cc3b89-dd69-4327-8d7d-a3aa998f8ff5">
+      <ID>Id</ID>
+      <Name>Id</Name>
+      <IsKey>true</IsKey>
+      <Type>Long</Type>
+      <Source xsi:type="CubeAttributeBinding" dwd:design-time-name="1d614475-376a-45b5-9858-53b6824429ba">
+        <CubeID>Progress OLAP</CubeID>
+        <CubeDimensionID>Student</CubeDimensionID>
+        <AttributeID>Id</AttributeID>
+        <Type>All</Type>
+      </Source>
+      <Content>Key</Content>
+    </Column>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="189d1254-697d-41ae-bbcd-26cc8cca8dd2">
+      <ID>Country</ID>
+      <Name>Country</Name>
+      <Type>Text</Type>
+      <Source xsi:type="CubeAttributeBinding" dwd:design-time-name="786c6274-0915-4e12-81b2-a93c2dd22c9b">
+        <CubeID>Progress OLAP</CubeID>
+        <CubeDimensionID>Student</CubeDimensionID>
+        <AttributeID>Country</AttributeID>
+        <Type>All</Type>
+      </Source>
+      <Content>Discrete</Content>
+    </Column>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="4e23613c-ad79-4d61-b24b-a7b6e1bbc257">
+      <ID>Excellent Status</ID>
+      <Name>Excellent Status</Name>
+      <Type>Text</Type>
+      <Source xsi:type="CubeAttributeBinding" dwd:design-time-name="a8f0181a-7398-4afb-ace0-6144c8580642">
+        <CubeID>Progress OLAP</CubeID>
+        <CubeDimensionID>Student</CubeDimensionID>
+        <AttributeID>Excellent Status</AttributeID>
+        <Type>All</Type>
+      </Source>
+      <Content>Discrete</Content>
+    </Column>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="5de5b855-606c-4040-b2df-f607f8c2f105">
+      <ID>From SNG Country</ID>
+      <Name>From SNG Country</Name>
+      <Type>Boolean</Type>
+      <Source xsi:type="CubeAttributeBinding" dwd:design-time-name="fb9f9e74-5a18-4b60-96bb-df040a08e79a">
+        <CubeID>Progress OLAP</CubeID>
+        <CubeDimensionID>Student</CubeDimensionID>
+        <AttributeID>From SNG Country</AttributeID>
+        <Type>All</Type>
+      </Source>
+      <Content>Discrete</Content>
+    </Column>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="3e8c105e-edcb-43b3-8c80-f3bb8a016e7f">
+      <ID>Full Name</ID>
+      <Name>Full Name</Name>
+      <Type>Text</Type>
+      <Source xsi:type="CubeAttributeBinding" dwd:design-time-name="1b906e9e-e5bd-41ee-863c-3ae0ab161393">
+        <CubeID>Progress OLAP</CubeID>
+        <CubeDimensionID>Student</CubeDimensionID>
+        <AttributeID>Full Name</AttributeID>
+        <Type>All</Type>
+      </Source>
+      <Content>Discrete</Content>
+    </Column>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="148db1e4-ceaa-42d9-b721-3f0361b6ebb2">
+      <ID>Gender</ID>
+      <Name>Gender</Name>
+      <Type>Boolean</Type>
+      <Source xsi:type="CubeAttributeBinding" dwd:design-time-name="1bbc5445-5c8b-4f6f-92ad-1f15d01f411f">
+        <CubeID>Progress OLAP</CubeID>
+        <CubeDimensionID>Student</CubeDimensionID>
+        <AttributeID>Gender</AttributeID>
+        <Type>All</Type>
+      </Source>
+      <Content>Discrete</Content>
+    </Column>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="d762522f-e53c-4719-b124-48d33948be0f">
+      <ID>Has Child</ID>
+      <Name>Has Child</Name>
+      <Type>Boolean</Type>
+      <Source xsi:type="CubeAttributeBinding" dwd:design-time-name="0fb6a2b0-4d8c-4075-8f6c-e76800561478">
+        <CubeID>Progress OLAP</CubeID>
+        <CubeDimensionID>Student</CubeDimensionID>
+        <AttributeID>Has Child</AttributeID>
+        <Type>All</Type>
+      </Source>
+      <Content>Discrete</Content>
+    </Column>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="5adf4dc7-d1f0-42dd-9773-37988b5ead96">
+      <ID>Has Work</ID>
+      <Name>Has Work</Name>
+      <Type>Boolean</Type>
+      <Source xsi:type="CubeAttributeBinding" dwd:design-time-name="1227253e-5cc7-47a4-b0dd-8f85f3b9881f">
+        <CubeID>Progress OLAP</CubeID>
+        <CubeDimensionID>Student</CubeDimensionID>
+        <AttributeID>Has Work</AttributeID>
+        <Type>All</Type>
+      </Source>
+      <Content>Discrete</Content>
+    </Column>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="a2d3dce6-5da7-47ff-951b-52c351f5e6d7">
+      <ID>Is Inval</ID>
+      <Name>Is Inval</Name>
+      <Type>Boolean</Type>
+      <Source xsi:type="CubeAttributeBinding" dwd:design-time-name="e91e7727-51e2-449b-b3f9-fb5a3910c254">
+        <CubeID>Progress OLAP</CubeID>
+        <CubeDimensionID>Student</CubeDimensionID>
+        <AttributeID>Is Inval</AttributeID>
+        <Type>All</Type>
+      </Source>
+      <Content>Discrete</Content>
+    </Column>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="8236e659-6340-41a4-8ca3-c64bfe54f37a">
+      <ID>Need Hostel</ID>
+      <Name>Need Hostel</Name>
+      <Type>Boolean</Type>
+      <Source xsi:type="CubeAttributeBinding" dwd:design-time-name="2327a0ac-674f-47a4-b3ec-d430fc2de9f4">
+        <CubeID>Progress OLAP</CubeID>
+        <CubeDimensionID>Student</CubeDimensionID>
+        <AttributeID>Need Hostel</AttributeID>
+        <Type>All</Type>
+      </Source>
+      <Content>Discrete</Content>
+    </Column>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="dadbb68f-57cd-4475-a88d-04459652bced">
+      <ID>Pre Training</ID>
+      <Name>Pre Training</Name>
+      <Type>Text</Type>
+      <Source xsi:type="CubeAttributeBinding" dwd:design-time-name="1f162a6f-ec54-43a1-8464-b8bb38f57ce1">
+        <CubeID>Progress OLAP</CubeID>
+        <CubeDimensionID>Student</CubeDimensionID>
+        <AttributeID>Pre Training</AttributeID>
+        <Type>All</Type>
+      </Source>
+      <Content>Discrete</Content>
+    </Column>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="6730e05f-e881-41f8-b413-0e3eefeed4fc">
+      <ID>Status</ID>
+      <Name>Status</Name>
+      <Type>Text</Type>
+      <Source xsi:type="CubeAttributeBinding" dwd:design-time-name="4457a140-3a68-4d3c-9a58-e3330f6238f4">
+        <CubeID>Progress OLAP</CubeID>
+        <CubeDimensionID>Student</CubeDimensionID>
+        <AttributeID>Status</AttributeID>
+        <Type>All</Type>
+      </Source>
+      <Content>Discrete</Content>
+    </Column>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="6594628a-1457-4e81-a4fd-4c0c0d08b17e">
+      <ID>Средний балл</ID>
+      <Name>Средний балл</Name>
+      <Type>Double</Type>
+      <Source xsi:type="CalculatedMeasureBinding" dwd:design-time-name="8ac7c6d0-f703-4c08-a955-346fbc6d3d90">
+        <MeasureName>[Measures].[Средний балл]</MeasureName>
+      </Source>
+      <Content>Continuous</Content>
+    </Column>
+  </Columns>
+  <MiningModels>
+    <MiningModel dwd:design-time-name="96e70106-c11c-4b7d-acdf-9e684a7af9cf">
+      <ID>Student</ID>
+      <Name>Student</Name>
+      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+      <Annotations>
+        <Annotation>
+          <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:Microsoft.AnalysisServices.MiningModel</Name>
+          <Value>
+            <Microsoft.AnalysisServices.MiningModel xmlns="">
+              <Filter>&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;MiningModelFilter xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;Items&gt;
+    &lt;FilterGridItem&gt;
+      &lt;IsGroup&gt;false&lt;/IsGroup&gt;
+      &lt;IsDataTable&gt;false&lt;/IsDataTable&gt;
+      &lt;Operator&gt;&amp;gt;&lt;/Operator&gt;
+      &lt;ColumnName&gt;Средний балл&lt;/ColumnName&gt;
+      &lt;ColumnID&gt;Средний балл&lt;/ColumnID&gt;
+      &lt;Value&gt;2&lt;/Value&gt;
+      &lt;AndOr&gt;None&lt;/AndOr&gt;
+      &lt;ChildItems /&gt;
+    &lt;/FilterGridItem&gt;
+    &lt;FilterGridItem&gt;
+      &lt;IsGroup&gt;false&lt;/IsGroup&gt;
+      &lt;IsDataTable&gt;false&lt;/IsDataTable&gt;
+      &lt;ColumnName /&gt;
+      &lt;AndOr&gt;AND&lt;/AndOr&gt;
+      &lt;ChildItems /&gt;
+    &lt;/FilterGridItem&gt;
+  &lt;/Items&gt;
+&lt;/MiningModelFilter&gt;</Filter>
+            </Microsoft.AnalysisServices.MiningModel>
+          </Value>
+        </Annotation>
+      </Annotations>
+      <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+      <State>Unprocessed</State>
+      <Algorithm>Microsoft_Decision_Trees</Algorithm>
+      <Columns>
+        <Column dwd:design-time-name="b6b9858d-7a6f-4ce0-bc44-96233e1b8065">
+          <ID>Id</ID>
+          <Name>Id</Name>
+          <SourceColumnID>Id</SourceColumnID>
+          <Usage>Key</Usage>
+        </Column>
+        <Column dwd:design-time-name="d6b296c8-1f61-43fe-9cb9-7962e0349164">
+          <ID>Country</ID>
+          <Name>Country</Name>
+          <SourceColumnID>Country</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="09fc9ece-abc0-4852-aae2-e5c9110f8a34">
+          <ID>Excellent Status</ID>
+          <Name>Excellent Status</Name>
+          <SourceColumnID>Excellent Status</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="4534c2fc-6bff-4fb8-bd12-ecb31706ebe9">
+          <ID>From SNG Country</ID>
+          <Name>From SNG Country</Name>
+          <SourceColumnID>From SNG Country</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="dfe3627d-2f68-491e-9e5f-133678768f99">
+          <ID>Full Name</ID>
+          <Name>Full Name</Name>
+          <SourceColumnID>Full Name</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="bc155730-bd2d-4cb2-bd3f-9275306d4864">
+          <ID>Gender</ID>
+          <Name>Gender</Name>
+          <SourceColumnID>Gender</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="ff1e67b7-dfef-4ab8-b487-e24ef2c328de">
+          <ID>Has Child</ID>
+          <Name>Has Child</Name>
+          <SourceColumnID>Has Child</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="4b4197c3-3447-4707-8dd4-031bb91f2f19">
+          <ID>Has Work</ID>
+          <Name>Has Work</Name>
+          <SourceColumnID>Has Work</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="e9c3bd3a-b25a-4f69-b7f4-3b1778a36a6e">
+          <ID>Is Inval</ID>
+          <Name>Is Inval</Name>
+          <SourceColumnID>Is Inval</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="7d8125b8-db3c-4730-88cc-eb9ced5b1678">
+          <ID>Need Hostel</ID>
+          <Name>Need Hostel</Name>
+          <SourceColumnID>Need Hostel</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="e07f0bf3-3591-4549-8c1e-c8a1ff8a6d02">
+          <ID>Pre Training</ID>
+          <Name>Pre Training</Name>
+          <SourceColumnID>Pre Training</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="0f862535-f0c9-4135-b91e-cf87426102be">
+          <ID>Status</ID>
+          <Name>Status</Name>
+          <SourceColumnID>Status</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="388fd18f-8080-42b5-8b67-c5a7b2275ee7">
+          <ID>Средний балл</ID>
+          <Name>Средний балл</Name>
+          <SourceColumnID>Средний балл</SourceColumnID>
+          <Usage>Predict</Usage>
+          <ModelingFlags>
+            <ModelingFlag>REGRESSOR</ModelingFlag>
+          </ModelingFlags>
+        </Column>
+      </Columns>
+      <ddl100_100:Filter>[Средний балл] &gt; 2</ddl100_100:Filter>
+    </MiningModel>
+    <MiningModel dwd:design-time-name="7a77c187-eebd-49fc-97f2-eb9b0d1bfe7e">
+      <ID>Student Model Neuro</ID>
+      <Name>Student Model Neuro</Name>
+      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+      <Annotations>
+        <Annotation>
+          <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:Microsoft.AnalysisServices.MiningModel</Name>
+          <Value>
+            <Microsoft.AnalysisServices.MiningModel xmlns="">
+              <Filter>&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;MiningModelFilter xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;Items&gt;
+    &lt;FilterGridItem&gt;
+      &lt;IsGroup&gt;false&lt;/IsGroup&gt;
+      &lt;IsDataTable&gt;false&lt;/IsDataTable&gt;
+      &lt;Operator&gt;&amp;gt;&lt;/Operator&gt;
+      &lt;ColumnName&gt;Средний балл&lt;/ColumnName&gt;
+      &lt;ColumnID&gt;Средний балл&lt;/ColumnID&gt;
+      &lt;Value&gt;2&lt;/Value&gt;
+      &lt;AndOr&gt;None&lt;/AndOr&gt;
+      &lt;ChildItems /&gt;
+    &lt;/FilterGridItem&gt;
+    &lt;FilterGridItem&gt;
+      &lt;IsGroup&gt;false&lt;/IsGroup&gt;
+      &lt;IsDataTable&gt;false&lt;/IsDataTable&gt;
+      &lt;ColumnName /&gt;
+      &lt;AndOr&gt;AND&lt;/AndOr&gt;
+      &lt;ChildItems /&gt;
+    &lt;/FilterGridItem&gt;
+  &lt;/Items&gt;
+&lt;/MiningModelFilter&gt;</Filter>
+            </Microsoft.AnalysisServices.MiningModel>
+          </Value>
+        </Annotation>
+      </Annotations>
+      <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+      <State>Unprocessed</State>
+      <Algorithm>Microsoft_Neural_Network</Algorithm>
+      <Columns>
+        <Column dwd:design-time-name="13d9fa38-1b36-43bd-86c0-d998dd9f3fad">
+          <ID>Id</ID>
+          <Name>Id</Name>
+          <SourceColumnID>Id</SourceColumnID>
+          <Usage>Key</Usage>
+        </Column>
+        <Column dwd:design-time-name="f19026ab-31fb-4936-95ab-4a7d24f63e9e">
+          <ID>Country</ID>
+          <Name>Country</Name>
+          <SourceColumnID>Country</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="4f907bba-bb28-48c1-9351-65ec02633fac">
+          <ID>Excellent Status</ID>
+          <Name>Excellent Status</Name>
+          <SourceColumnID>Excellent Status</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="70571658-68ca-42e8-aeae-0bed4c22c76c">
+          <ID>From SNG Country</ID>
+          <Name>From SNG Country</Name>
+          <SourceColumnID>From SNG Country</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="169a8d0a-8035-4910-a308-cd6fe75545de">
+          <ID>Full Name</ID>
+          <Name>Full Name</Name>
+          <SourceColumnID>Full Name</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="b02c83dc-e745-493b-9986-047e616b95fb">
+          <ID>Gender</ID>
+          <Name>Gender</Name>
+          <SourceColumnID>Gender</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="4d6e8859-e263-42d4-82a3-4869a83417b3">
+          <ID>Has Child</ID>
+          <Name>Has Child</Name>
+          <SourceColumnID>Has Child</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="5d4742a0-9c3f-474e-9c3e-47856fe75e5b">
+          <ID>Has Work</ID>
+          <Name>Has Work</Name>
+          <SourceColumnID>Has Work</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="86c7bd5c-b003-4be3-9f96-85bc486f44d8">
+          <ID>Is Inval</ID>
+          <Name>Is Inval</Name>
+          <SourceColumnID>Is Inval</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="e299d875-23a6-4d95-9e2b-6c157d4b3fa3">
+          <ID>Need Hostel</ID>
+          <Name>Need Hostel</Name>
+          <SourceColumnID>Need Hostel</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="d3349863-c366-437e-9766-8c77d7b3d6e6">
+          <ID>Pre Training</ID>
+          <Name>Pre Training</Name>
+          <SourceColumnID>Pre Training</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="8d242bec-f5bc-4ac9-8000-ee671d5559d6">
+          <ID>Status</ID>
+          <Name>Status</Name>
+          <SourceColumnID>Status</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="6fdbf55d-5d5d-4eff-96c5-344f05208d5c">
+          <ID>Средний балл</ID>
+          <Name>Средний балл</Name>
+          <SourceColumnID>Средний балл</SourceColumnID>
+          <Usage>Predict</Usage>
+        </Column>
+      </Columns>
+      <ddl100_100:Filter>[Средний балл] &gt; 2</ddl100_100:Filter>
+    </MiningModel>
+    <MiningModel dwd:design-time-name="3683424b-0c84-4e20-aecd-3fced4392da5">
+      <ID>Student Cluster</ID>
+      <Name>Student Cluster</Name>
+      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+      <Annotations>
+        <Annotation>
+          <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:Microsoft.AnalysisServices.MiningModel</Name>
+          <Value>
+            <Microsoft.AnalysisServices.MiningModel xmlns="">
+              <Filter>&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;MiningModelFilter xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;Items&gt;
+    &lt;FilterGridItem&gt;
+      &lt;IsGroup&gt;false&lt;/IsGroup&gt;
+      &lt;IsDataTable&gt;false&lt;/IsDataTable&gt;
+      &lt;Operator&gt;&amp;gt;&lt;/Operator&gt;
+      &lt;ColumnName&gt;Средний балл&lt;/ColumnName&gt;
+      &lt;ColumnID&gt;Средний балл&lt;/ColumnID&gt;
+      &lt;Value&gt;2&lt;/Value&gt;
+      &lt;AndOr&gt;None&lt;/AndOr&gt;
+      &lt;ChildItems /&gt;
+    &lt;/FilterGridItem&gt;
+    &lt;FilterGridItem&gt;
+      &lt;IsGroup&gt;false&lt;/IsGroup&gt;
+      &lt;IsDataTable&gt;false&lt;/IsDataTable&gt;
+      &lt;ColumnName /&gt;
+      &lt;AndOr&gt;AND&lt;/AndOr&gt;
+      &lt;ChildItems /&gt;
+    &lt;/FilterGridItem&gt;
+  &lt;/Items&gt;
+&lt;/MiningModelFilter&gt;</Filter>
+            </Microsoft.AnalysisServices.MiningModel>
+          </Value>
+        </Annotation>
+      </Annotations>
+      <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+      <State>Unprocessed</State>
+      <Algorithm>Microsoft_Clustering</Algorithm>
+      <Columns>
+        <Column dwd:design-time-name="3f638377-23eb-498f-b3ac-fba8b55a22bb">
+          <ID>Id</ID>
+          <Name>Id</Name>
+          <SourceColumnID>Id</SourceColumnID>
+          <Usage>Key</Usage>
+        </Column>
+        <Column dwd:design-time-name="3bfd6254-77d2-41b7-b505-3c234081d96c">
+          <ID>Country</ID>
+          <Name>Country</Name>
+          <SourceColumnID>Country</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="ddea6dc7-057e-4861-bdc6-3217cbb3f4ad">
+          <ID>Excellent Status</ID>
+          <Name>Excellent Status</Name>
+          <SourceColumnID>Excellent Status</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="402d53cf-ba3f-4ddd-9262-d4ad51b38f0f">
+          <ID>From SNG Country</ID>
+          <Name>From SNG Country</Name>
+          <SourceColumnID>From SNG Country</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="59b3486f-b43d-4e06-aeec-798997a3902c">
+          <ID>Full Name</ID>
+          <Name>Full Name</Name>
+          <SourceColumnID>Full Name</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="94c96f0a-685a-4603-9843-89bee8ef65ce">
+          <ID>Gender</ID>
+          <Name>Gender</Name>
+          <SourceColumnID>Gender</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="7f505423-7654-4cfd-a11f-2866b4554821">
+          <ID>Has Child</ID>
+          <Name>Has Child</Name>
+          <SourceColumnID>Has Child</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="61e3e576-95e1-4cf0-9003-a1d47d2b24a0">
+          <ID>Has Work</ID>
+          <Name>Has Work</Name>
+          <SourceColumnID>Has Work</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="d95ee39f-e57a-4d50-a6c3-3a88ac4df653">
+          <ID>Is Inval</ID>
+          <Name>Is Inval</Name>
+          <SourceColumnID>Is Inval</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="fe05005c-c6bc-41cb-85e6-bed66088e314">
+          <ID>Need Hostel</ID>
+          <Name>Need Hostel</Name>
+          <SourceColumnID>Need Hostel</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="f07c9d3e-bb2a-415e-b627-66adeedd88d4">
+          <ID>Pre Training</ID>
+          <Name>Pre Training</Name>
+          <SourceColumnID>Pre Training</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="0e014922-1b0f-471c-91d5-7e4efb731ca5">
+          <ID>Status</ID>
+          <Name>Status</Name>
+          <SourceColumnID>Status</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="89c6ce0f-6af9-4d3f-8307-1eeb587609fd">
+          <ID>Средний балл</ID>
+          <Name>Средний балл</Name>
+          <SourceColumnID>Средний балл</SourceColumnID>
+          <Usage>Predict</Usage>
+        </Column>
+      </Columns>
+      <ddl100_100:Filter>[Средний балл] &gt; 2</ddl100_100:Filter>
+    </MiningModel>
+  </MiningModels>
+  <ddl100_100:HoldoutMaxPercent>30</ddl100_100:HoldoutMaxPercent>
+</MiningStructure>

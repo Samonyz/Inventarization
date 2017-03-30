@@ -4,23 +4,24 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="1d1f39a5455042a8bfd7bb5adcfc2921" Name="Diagram1" ZoomLevel="74">
+      <Diagram DiagramId="63a4bceb8bf14494a14ef340b5f9f47b" Name="Diagram1" ZoomLevel="86">
         <EntityTypeShape EntityType="InventarizationModel.Building" Width="1.5" PointX="0.75" PointY="7.875" IsExpanded="true" />
         <EntityTypeShape EntityType="InventarizationModel.DefectiveList" Width="1.5" PointX="10.5" PointY="12.5" IsExpanded="true" />
         <EntityTypeShape EntityType="InventarizationModel.Expert" Width="1.5" PointX="5.25" PointY="5.875" IsExpanded="true" />
         <EntityTypeShape EntityType="InventarizationModel.Expertise" Width="1.5" PointX="7.5" PointY="5.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="InventarizationModel.Inventory" Width="1.5" PointX="5.25" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventarizationModel.Inventory" Width="1.5" PointX="4.125" PointY="16" IsExpanded="true" />
         <EntityTypeShape EntityType="InventarizationModel.InvSchedule" Width="1.5" PointX="7.5" PointY="15.75" IsExpanded="true" />
         <EntityTypeShape EntityType="InventarizationModel.MoveStatement" Width="1.5" PointX="7.5" PointY="9.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="InventarizationModel.ObjectType" Width="1.5" PointX="3.125" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventarizationModel.ObjectType" Width="1.5" PointX="3.125" PointY="13.5" IsExpanded="true" />
         <EntityTypeShape EntityType="InventarizationModel.ScheduleContext" Width="1.5" PointX="9.75" PointY="15.875" IsExpanded="true" />
         <EntityTypeShape EntityType="InventarizationModel.StatementContext" Width="1.5" PointX="9.75" PointY="9" IsExpanded="true" />
         <EntityTypeShape EntityType="InventarizationModel.Subdivision" Width="1.5" PointX="3" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventarizationModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="InventarizationModel.Waybill" Width="1.5" PointX="10.5" PointY="6.25" IsExpanded="true" />
         <EntityTypeShape EntityType="InventarizationModel.WaybillContext" Width="1.5" PointX="12.75" PointY="10" IsExpanded="true" />
         <EntityTypeShape EntityType="InventarizationModel.Worker" Width="1.5" PointX="5.25" PointY="12.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="InventarizationModel.WriteOffAct" Width="1.5" PointX="8.25" PointY="18.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="InventarizationModel.WriteOffReason" Width="1.5" PointX="6" PointY="18.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventarizationModel.WriteOffAct" Width="1.5" PointX="8.25" PointY="20.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventarizationModel.WriteOffReason" Width="1.5" PointX="6" PointY="19.25" IsExpanded="true" />
         <AssociationConnector Association="InventarizationModel.FKSubdivisio85726" ManuallyRouted="false" />
         <AssociationConnector Association="InventarizationModel.FKDefectiveL271518" ManuallyRouted="false" />
         <AssociationConnector Association="InventarizationModel.FKDefectiveL833326" ManuallyRouted="false" />
@@ -28,6 +29,7 @@
         <AssociationConnector Association="InventarizationModel.FKExpert769302" ManuallyRouted="false" />
         <AssociationConnector Association="InventarizationModel.FKExpertise270232" ManuallyRouted="false" />
         <AssociationConnector Association="InventarizationModel.FKExpertise786849" ManuallyRouted="false" />
+        <AssociationConnector Association="InventarizationModel.FK__WriteOffA__IdInv__5AEE82B9" ManuallyRouted="false" />
         <AssociationConnector Association="InventarizationModel.FKInventory805665" ManuallyRouted="false" />
         <AssociationConnector Association="InventarizationModel.FKScheduleCo124961" ManuallyRouted="false" />
         <AssociationConnector Association="InventarizationModel.FKStatementC692918" ManuallyRouted="false" />

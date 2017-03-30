@@ -14,11 +14,15 @@ namespace Invent.Domain
     {
         private List<LocalSubdiv> list;
         private ViewController Vc;
-        public MoveForm(ViewController vc)
+        private List<InventoryItem> listik;
+        List<InventoryItem> sendlist = new List<InventoryItem>();
+        private DataManipulationCtrl _dmc;
+        public MoveForm(ViewController vc, DataManipulationCtrl dmc)
         {
             InitializeComponent();
             Vc = vc;
             list = Vc.subdivs();
+            _dmc = dmc;
         }
 
         private void MoveForm_Load(object sender, EventArgs e)
@@ -28,7 +32,11 @@ namespace Invent.Domain
             localSubdivBindingSource1.DataSource = null;
             localSubdivBindingSource1.DataSource = list;
             inventoryItemBindingSource.DataSource = null;
-            inventoryItemBindingSource.DataSource = Vc.SubdivisionInventory(Vc.getSubdivOnId((localSubdivBindingSource.Current as LocalSubdiv).idSubdiv));
+            listik = Vc.SubdivisionInventory(Vc.getSubdivOnId((localSubdivBindingSource.Current as LocalSubdiv).idSubdiv));
+            var count = listik.Count();
+            inventoryItemBindingSource.DataSource = listik;
+            label2.Text = "Всего единиц зарегистрировано: " + count.ToString();
+
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -56,10 +64,11 @@ namespace Invent.Domain
         {
             var id = (localSubdivBindingSource.Current as LocalSubdiv).idSubdiv;
             Subdivision sd = Vc.getSubdivOnId(id);
-            List<InventoryItem> nl = Vc.SubdivisionInventory(sd);
+            listik = Vc.SubdivisionInventory(sd);
             inventoryItemBindingSource.DataSource = null;
-            inventoryItemBindingSource.DataSource = nl;
-            CountLb.Text = nl.Count.ToString();
+            inventoryItemBindingSource.DataSource = listik;
+            label2.Text = "Всего единиц зарегистрировано: " + listik.Count.ToString();
+            //CountLb.Text = nl.Count.ToString();
         }
 
         private void DoMovebtn_Click(object sender, EventArgs e)
@@ -73,7 +82,22 @@ namespace Invent.Domain
 
         private void DoMove()
         {
-            throw new NotImplementedException();
+            _dmc.moveItem(sendlist, ((localSubdivBindingSource.Current as LocalSubdiv).idSubdiv), ((localSubdivBindingSource1.Current as LocalSubdiv).idSubdiv));
+            MoveExceller me = new MoveExceller(Vc.LastStatement(), Vc, " ", Vc.sender(Vc.LastStatement()), Vc.receiver(Vc.LastStatement()));
+            me.MakeDocument();
+            MessageBox.Show("Перемещение удачно!");
+        }
+
+        private void AddBtn_Click(object sender, EventArgs e)
+        {
+            sendlist.Add((inventoryItemBindingSource.Current as InventoryItem));
+            inventoryItemBindingSource1.DataSource = null;
+            inventoryItemBindingSource1.DataSource = sendlist;
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -23,9 +23,11 @@ namespace Invent.Domain
         public int IDWriteOffAct { get; set; }
         public System.DateTime WriteOffDate { get; set; }
         public Nullable<int> WriteOffReasonIDReason { get; set; }
+        public Nullable<int> IdInventory { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DefectiveList> DefectiveList { get; set; }
+        public virtual Inventory Inventory { get; set; }
         public virtual WriteOffReason WriteOffReason { get; set; }
     }
 }

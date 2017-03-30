@@ -13,10 +13,10 @@ namespace Invent.Domain
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class InventarizationEntities3 : DbContext
+    public partial class InventarizationEntities4 : DbContext
     {
-        public InventarizationEntities3()
-            : base("name=InventarizationEntities3")
+        public InventarizationEntities4()
+            : base("name=InventarizationEntities4")
         {
         }
     
@@ -36,6 +36,7 @@ namespace Invent.Domain
         public virtual DbSet<ScheduleContext> ScheduleContext { get; set; }
         public virtual DbSet<StatementContext> StatementContext { get; set; }
         public virtual DbSet<Subdivision> Subdivision { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Waybill> Waybill { get; set; }
         public virtual DbSet<WaybillContext> WaybillContext { get; set; }
         public virtual DbSet<Worker> Worker { get; set; }

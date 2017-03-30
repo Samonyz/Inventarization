@@ -18,6 +18,7 @@ namespace Invent.Domain
         public Inventory()
         {
             this.Expertise = new HashSet<Expertise>();
+            this.WriteOffAct = new HashSet<WriteOffAct>();
             this.ScheduleContext = new HashSet<ScheduleContext>();
             this.StatementContext = new HashSet<StatementContext>();
         }
@@ -32,6 +33,8 @@ namespace Invent.Domain
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Expertise> Expertise { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<WriteOffAct> WriteOffAct { get; set; }
         public virtual ObjectType ObjectType { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ScheduleContext> ScheduleContext { get; set; }

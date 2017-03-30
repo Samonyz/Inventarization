@@ -57,6 +57,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Domain\AddWaybill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Domain\AddWaybill.Designer.cs">
+      <DependentUpon>AddWaybill.cs</DependentUpon>
+    </Compile>
     <Compile Include="Domain\Building.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -77,7 +83,10 @@
     <Compile Include="Domain\InvSchedule.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Domain\LocalObjectType.cs" />
+    <Compile Include="Domain\LocalReason.cs" />
     <Compile Include="Domain\LocalSubdiv.cs" />
+    <Compile Include="Domain\LocalWorker.cs" />
     <Compile Include="Domain\Model.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -93,6 +102,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Domain\MoveExceller.cs" />
     <Compile Include="Domain\MoveForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,8 +112,15 @@
     <Compile Include="Domain\MoveStatement.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Domain\MoveStatementLocal.cs" />
     <Compile Include="Domain\ObjectType.cs">
       <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\RegisterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Domain\RegisterForm.Designer.cs">
+      <DependentUpon>RegisterForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Domain\ScheduleContext.cs">
       <DependentUpon>Model.tt</DependentUpon>
@@ -114,7 +131,16 @@
     <Compile Include="Domain\Subdivision.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Domain\sysdiagrams.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Domain\ViewController.cs" />
+    <Compile Include="Domain\ViewMoveStatements.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Domain\ViewMoveStatements.Designer.cs">
+      <DependentUpon>ViewMoveStatements.cs</DependentUpon>
+    </Compile>
     <Compile Include="Domain\Waybill.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -124,8 +150,20 @@
     <Compile Include="Domain\Worker.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Domain\WritedOffItems.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Domain\WritedOffItems.Designer.cs">
+      <DependentUpon>WritedOffItems.cs</DependentUpon>
+    </Compile>
     <Compile Include="Domain\WriteOffAct.cs">
       <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\WriteOffForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Domain\WriteOffForm.Designer.cs">
+      <DependentUpon>WriteOffForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Domain\WriteOffReason.cs">
       <DependentUpon>Model.tt</DependentUpon>
@@ -138,8 +176,23 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Domain\AddWaybill.resx">
+      <DependentUpon>AddWaybill.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Domain\MoveForm.resx">
       <DependentUpon>MoveForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Domain\RegisterForm.resx">
+      <DependentUpon>RegisterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Domain\ViewMoveStatements.resx">
+      <DependentUpon>ViewMoveStatements.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Domain\WritedOffItems.resx">
+      <DependentUpon>WritedOffItems.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Domain\WriteOffForm.resx">
+      <DependentUpon>WriteOffForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -162,7 +215,11 @@
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Invent.Domain.InventoryItem.datasource" />
+    <None Include="Properties\DataSources\Invent.Domain.LocalObjectType.datasource" />
+    <None Include="Properties\DataSources\Invent.Domain.LocalReason.datasource" />
     <None Include="Properties\DataSources\Invent.Domain.LocalSubdiv.datasource" />
+    <None Include="Properties\DataSources\Invent.Domain.MoveStatement.datasource" />
+    <None Include="Properties\DataSources\Invent.Domain.MoveStatementLocal.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -190,6 +247,35 @@
       <DependentUpon>Model.edmx</DependentUpon>
       <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>9</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
